@@ -5,7 +5,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@FeignClient(name = "tareas-service", path = "/api/tareas")
+@FeignClient(name = "servicio-tareas", path = "/api/tareas")
 public interface TareaService {
 
     @GetMapping("/{id}")

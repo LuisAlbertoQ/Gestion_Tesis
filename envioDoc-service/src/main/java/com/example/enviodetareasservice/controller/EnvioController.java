@@ -37,7 +37,7 @@ public class EnvioController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Envio>getEnvioTareaById(
+    public ResponseEntity<Envio>getEnvioById(
             @PathVariable Long id,
             @RequestHeader ("Authorization") String jwt
     )throws Exception{
@@ -47,7 +47,7 @@ public class EnvioController {
     }
 
     @GetMapping()
-    public ResponseEntity<List<Envio>>getAllEnvioTarea(
+    public ResponseEntity<List<Envio>>getAllEnvios(
             @RequestHeader ("Authorization") String jwt
     )throws Exception{
         UserDto user=userService.getUserProfile(jwt);
@@ -56,7 +56,7 @@ public class EnvioController {
     }
 
     @GetMapping("/tarea/{tareaId}")
-    public ResponseEntity<List<Envio>>getEnvioTareaByTareaId(
+    public ResponseEntity<List<Envio>>getAllEnvios(
             @PathVariable Long tareaId,
             @RequestHeader ("Authorization") String jwt
     )throws Exception{
@@ -66,7 +66,7 @@ public class EnvioController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Envio>aceptarRechazarEnvio(
+    public ResponseEntity<Envio>aceptarORechazarEnvio(
             @PathVariable Long id,
             @RequestParam("estado") String estado,
             @RequestHeader ("Authorization") String jwt

@@ -1,6 +1,6 @@
 spring:
   application:
-    name: envio-service
+    name: envios-service
   profiles:
     active: development
   config:

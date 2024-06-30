@@ -17,8 +17,8 @@ spring:
         locator:
           enable: true
       routes:
-        - id: envio-service
-          uri: lb://envio-service
+        - id: envios-service
+          uri: lb://envios-service
           predicates:
             - Path=/api/envios/**, /envios/**, /
 
