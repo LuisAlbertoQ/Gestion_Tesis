@@ -1,4 +1,4 @@
-package com.example.enviodetareasservice.modal;
+package com.example.enviodetareasservice.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class UserDto {
-    private Long id;
+    private long id;
 
     private String password;
     private String nombre;

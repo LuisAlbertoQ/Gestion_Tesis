@@ -1,6 +1,6 @@
 package com.example.enviodetareasservice.service;
 
-import com.example.enviodetareasservice.modal.UserDto;
+import com.example.enviodetareasservice.entity.UserDto;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;

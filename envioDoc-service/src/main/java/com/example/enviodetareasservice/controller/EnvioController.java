@@ -1,7 +1,7 @@
 package com.example.enviodetareasservice.controller;
 
-import com.example.enviodetareasservice.modal.Envio;
-import com.example.enviodetareasservice.modal.UserDto;
+import com.example.enviodetareasservice.entity.Envio;
+import com.example.enviodetareasservice.entity.UserDto;
 import com.example.enviodetareasservice.service.EnvioService;
 import com.example.enviodetareasservice.service.TareaService;
 import com.example.enviodetareasservice.service.UserService;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/envio")
+@RequestMapping("/api/envios")
 public class EnvioController {
 
     @Autowired
@@ -27,25 +27,24 @@ public class EnvioController {
 
     @PostMapping()
     public ResponseEntity<Envio>enviarTarea(
-            @RequestParam Long tareas_id,
+            @RequestParam Long tarea_id,
             @RequestParam String github_link,
             @RequestHeader ("Authorization") String jwt
     )throws Exception{
         UserDto user=userService.getUserProfile(jwt);
-        Envio envio=envioService.enviarTarea(tareas_id,github_link, user.getId(), jwt);
+        Envio envio=envioService.enviarTarea(tarea_id,github_link, user.getId(),jwt);
         return new ResponseEntity<>(envio, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Envio>getEnvioById(
             @PathVariable Long id,
-             @RequestHeader ("Authorization") String jwt
+            @RequestHeader ("Authorization") String jwt
     )throws Exception{
         UserDto user=userService.getUserProfile(jwt);
         Envio envio=envioService.getEnvioTareaById(id);
         return new ResponseEntity<>(envio, HttpStatus.CREATED);
     }
-
 
     @GetMapping()
     public ResponseEntity<List<Envio>>getAllEnvios(
@@ -56,17 +55,15 @@ public class EnvioController {
         return new ResponseEntity<>(envios, HttpStatus.CREATED);
     }
 
-
-    @GetMapping("/tarea/{tareasId}")
+    @GetMapping("/tarea/{tareaId}")
     public ResponseEntity<List<Envio>>getAllEnvios(
-            @PathVariable Long tareasId,
+            @PathVariable Long tareaId,
             @RequestHeader ("Authorization") String jwt
     )throws Exception{
         UserDto user=userService.getUserProfile(jwt);
-        List<Envio> envios=envioService.getEnvioTareaByTareaId(tareasId);
+        List<Envio> envios=envioService.getEnvioTareaByTareaId(tareaId);
         return new ResponseEntity<>(envios, HttpStatus.CREATED);
     }
-
 
     @PutMapping("/{id}")
     public ResponseEntity<Envio>aceptarORechazarEnvio(
@@ -75,7 +72,7 @@ public class EnvioController {
             @RequestHeader ("Authorization") String jwt
     )throws Exception{
         UserDto user=userService.getUserProfile(jwt);
-        Envio envio=envioService.aceptarRechazarEnvio(id, estado);
+        Envio envio=envioService.aceptarRechazarEnvio(id,estado);
         return new ResponseEntity<>(envio, HttpStatus.CREATED);
     }
 }

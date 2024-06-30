@@ -1,6 +1,6 @@
 package com.example.enviodetareasservice.service;
 
-import com.example.enviodetareasservice.modal.TareaDto;
+import com.example.enviodetareasservice.entity.TareasDto;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.*;
 public interface TareaService {
 
     @GetMapping("/{id}")
-    public TareaDto getTareaById(
+    public TareasDto getTareasById(
             @PathVariable Long id,
             @RequestHeader("Authorization") String jwt) throws Exception;
 
     @PutMapping("/{id}/complete")
-    public TareaDto completeTareas(
+    public TareasDto completeTareas(
             @PathVariable Long id) throws Exception;
 
 }

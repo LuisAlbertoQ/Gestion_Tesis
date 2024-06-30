@@ -1,4 +1,4 @@
-package com.example.enviodetareasservice.modal;
+package com.example.enviodetareasservice.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -20,18 +20,13 @@ public class Envio {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-
     private Long tareaId;
-
 
     private String githubLink;
 
-
     private Long userId;
 
-
     private String estado="PENDIENTE";
-
 
     private LocalDateTime fechaEnvio;
 }
