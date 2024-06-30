@@ -20,7 +20,7 @@ spring:
         - id: envio-service
           uri: lb://envio-service
           predicates:
-            - Path=/api/envio/**, /envio/**, /
+            - Path=/api/envios/**, /envios/**, /
 
         - id: tareas-service
           uri: lb://tareas-service
