@@ -8,10 +8,10 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ms-config-server" />
+        <module name="envio_tareas_service" />
         <module name="servicio-tareas" />
         <module name="ms-gateway-server" />
         <module name="user-service" />
-        <module name="enviodoc-service" />
         <module name="Ms-registry-server" />
       </profile>
     </annotationProcessing>
@@ -19,7 +19,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Ms-registry-server" options="-parameters" />
-      <module name="enviodoc-service" options="-parameters" />
+      <module name="envio_tareas_service" options="-parameters" />
       <module name="ms-config-server" options="-parameters" />
       <module name="ms-gateway-server" options="-parameters" />
       <module name="servicio-tareas" options="-parameters" />
